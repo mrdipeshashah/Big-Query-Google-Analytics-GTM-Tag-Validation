@@ -31,7 +31,7 @@ traffic as(
     (select t.page_title from unnest(channels_in_session) as t where t.ignore_referrer is null order by t.event_timestamp asc limit 1) as page_title,
     (select t.tag_date_creation from unnest(channels_in_session) as t where t.ignore_referrer is null order by t.event_timestamp asc limit 1) as tag_date_creation,
     event_name,
-    times, -- new line
+    times,
     extract(month from times) as month,
     extract(year from times) as year
   from temp)  
